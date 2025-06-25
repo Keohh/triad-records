@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+/* Splash Screen */
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  text-align: center;
+  overflow: hidden;
+}
+
+.logo {
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 3vh;
+  color: white;
+}
+
+/* Record SVG Spinner */
+.record-spinner {
+  width: clamp(80px, 12vw, 160px);
+  height: auto;
+  animation: spin 2s linear infinite;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Vinyl Spinner */
+.vinyl-spinner {
+  width: 100px;
+  height: 100px;
+  border: 12px solid #111;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #222 25%, #000 100%);
+  position: relative;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Smooth spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Homepage */
+.homepage {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+  min-height: 100vh;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: red;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.cta {
+  background-color: red;
+  border: none;
+  padding: 15px 30px;
+  color: white;
+  font-size: 1rem;
+  margin: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.cta:hover {
+  background-color: white;
+  color: red;
+}
