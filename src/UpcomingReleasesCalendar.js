@@ -1,9 +1,15 @@
 import React from "react";
 
-const releases = {
-  // Example: 5th and 18th of the current month
-  27: { title: "City Opening" },
-};
+// Example event data
+export const releases = [
+  {
+    day: 27,
+    title: "City Opening",
+    location: "City Hall",
+    time: "7:00 PM EST",
+    description: "Grand opening event for the city.",
+  },
+];
 
 function getMonthDays(year, month) {
   const date = new Date(year, month, 1);
@@ -15,7 +21,7 @@ function getMonthDays(year, month) {
   return days;
 }
 
-export default function UpcomingReleasesCalendar() {
+export default function UpcomingReleasesCalendar({ releases: releasesProp }) {
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth();
@@ -29,6 +35,12 @@ export default function UpcomingReleasesCalendar() {
     date.getDate() === today.getDate() &&
     date.getMonth() === today.getMonth() &&
     date.getFullYear() === today.getFullYear();
+
+  // Convert releases array to a map for quick lookup by day
+  const releasesMap = (releasesProp || []).reduce((acc, event) => {
+    acc[event.day] = event;
+    return acc;
+  }, {});
 
   const todayString = today.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -46,7 +58,7 @@ export default function UpcomingReleasesCalendar() {
           ))}
           {days.map((date) => {
             const day = date.getDate();
-            const release = releases[day];
+            const release = releasesMap[day];
             const classes = ["calendar-day"];
             if (release && isToday(date)) {
               classes.push("calendar-release-today");

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import CherryBlossomPetals from "./CherryBlossomPetals";
 import "./styles.css";
-import UpcomingReleasesCalendar from "./UpcomingReleasesCalendar";
+import UpcomingReleasesCalendar, { releases } from "./UpcomingReleasesCalendar";
 
 function Header({ navigate }) {
   return (
@@ -131,7 +131,46 @@ function Home() {
         <div className="red-overlay" />
       </div>
       <Header navigate={navigate} />
-      <UpcomingReleasesCalendar />
+      <div className="calendar-and-list">
+        <UpcomingReleasesCalendar releases={releases} />
+        {releases.length > 0 && (
+          <div className="release-list">
+            <h3>Event Details</h3>
+            <ul>
+              {releases.map((event, idx) => {
+                // Format date as 'Month Day, Year'
+                const now = new Date();
+                const eventDate = new Date(now.getFullYear(), now.getMonth(), event.day);
+                const day = eventDate.getDate();
+                const month = eventDate.toLocaleString('default', { month: 'long' });
+                const year = eventDate.getFullYear();
+                // Add ordinal suffix
+                const getOrdinal = (n) => {
+                  if (n > 3 && n < 21) return 'th';
+                  switch (n % 10) {
+                    case 1: return 'st';
+                    case 2: return 'nd';
+                    case 3: return 'rd';
+                    default: return 'th';
+                  }
+                };
+                const formattedDate = `${month} ${day}${getOrdinal(day)}, ${year}`;
+                return (
+                  <li key={idx} className="release-list-item">
+                    <span><i className="fas fa-music" style={{ color: '#ff3c3c', marginRight: '6px' }}></i><strong>{event.title}</strong></span><br />
+                    <span><i className="fas fa-calendar" style={{ color: '#ff3c3c', marginRight: '6px' }}></i>{formattedDate}</span><br />
+                    <span><i className="fas fa-clock" style={{ color: '#ff3c3c', marginRight: '6px' }}></i>{event.time}</span><br />
+                    <span><i className="fas fa-map-marker-alt" style={{ color: '#ff3c3c', marginRight: '6px' }}></i>{event.location}</span><br />
+                    {event.description && (
+                      <span><i className="fas fa-sticky-note" style={{ color: '#ff3c3c', marginRight: '6px' }}></i>{event.description}</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
       <section className="artist-listen-section">
         <h3>Our Artists</h3>
         <div className="artist-tile-list">

@@ -452,7 +452,10 @@ header p {
   text-align: center;
 }
 .calendar {
-  width: 100%;
+  width: 420px;
+  min-width: 420px;
+  max-width: 100%;
+  margin-right: 32px;
 }
 .calendar-header {
   text-align: center;
@@ -1032,4 +1035,176 @@ html, body {
   box-shadow: 0 0 16px 4px #fff, 0 0 8px 2px rgba(255,255,255,0.18);
   position: relative;
   z-index: 2;
+}
+
+.calendar-and-list {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.release-list {
+  position: relative;
+  right: 35vh;
+  top: 8vh;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  background: rgba(24, 24, 32, 0.85); /* semi-transparent dark */
+  backdrop-filter: blur(8px); /* subtle blur */
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  padding: 24px 20px;
+}
+.release-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.release-list h3 {
+  margin-top: 0;
+  color: #ff3c3c;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+.release-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.release-list-item {
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #292929;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.release-list-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .calendar-and-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .release-list {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .homepage {
+    max-width: 1800px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    padding-top: 220px;
+  }
+  .docked-header h1 {
+    font-size: 3.2rem;
+  }
+  .docked-header p {
+    font-size: 1.5rem;
+  }
+  .logo {
+    font-size: clamp(3rem, 6vw, 7rem);
+  }
+  .record-spinner {
+    width: clamp(120px, 14vw, 220px);
+  }
+  .release-list {
+    font-size: 1.25rem;
+    max-width: 500px;
+    padding: 36px 32px;
+  }
+  .calendar-section h2 {
+    font-size: 2.5rem;
+  }
+  .calendar-header {
+    font-size: 1.7rem;
+  }
+  .calendar {
+    width: 540px;
+    min-width: 540px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .homepage {
+    max-width: 2400px;
+    font-size: 1.5rem;
+    padding-top: 260px;
+  }
+  .docked-header h1 {
+    font-size: 4rem;
+  }
+  .docked-header p {
+    font-size: 2rem;
+  }
+  .logo {
+    font-size: clamp(4rem, 7vw, 10rem);
+  }
+  .record-spinner {
+    width: clamp(180px, 18vw, 320px);
+  }
+  .release-list {
+    font-size: 1.5rem;
+    max-width: 700px;
+    padding: 48px 40px;
+  }
+  .calendar-section h2 {
+    font-size: 3rem;
+  }
+  .calendar-header {
+    font-size: 2.2rem;
+  }
+  .calendar {
+    width: 700px;
+    min-width: 700px;
+  }
+}
+
+@media (min-width: 3840px) {
+  .homepage {
+    max-width: 3400px;
+    font-size: 2.2rem;
+    padding-top: 340px;
+  }
+  .docked-header h1 {
+    font-size: 6rem;
+  }
+  .docked-header p {
+    font-size: 3rem;
+  }
+  .logo {
+    font-size: clamp(6rem, 10vw, 16rem);
+  }
+  .record-spinner {
+    width: clamp(300px, 22vw, 500px);
+  }
+  .release-list {
+    font-size: 2.2rem;
+    max-width: 1200px;
+    padding: 80px 80px;
+  }
+  .calendar-section h2 {
+    font-size: 4rem;
+  }
+  .calendar-header {
+    font-size: 3rem;
+  }
+  .calendar {
+    width: 1100px;
+    min-width: 1100px;
+  }
 }
