@@ -1,1 +1,2 @@
-git lfs track "*.mov"
+git lfs track build/triadcini.move
+git lfs track public/triadcini.move
