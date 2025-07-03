@@ -39,45 +39,39 @@ function Footer() {
 
 const staff = [
   {
-    name: "Jane Doe",
+    name: "Jackson Gurso",
     role: "CEO & Founder",
+    photo: "https://r2.fivemanage.com/image/unOXeA3vQl3y.png"
+  },
+  {
+    name: "Elliot Metts",
+    role: "Executive Management",
+    photo: "https://r2.fivemanage.com/image/wPcDUYEUpiH0.png"
+  },
+  {
+    name: "Miguel Hernandez",
+    role: "CFO",
+    photo: "https://r2.fivemanage.com/image/JdqSEStsymzG.png"
+  },
+  {
+    name: "Joey McNugget",
+    role: "Support Staff",
     photo: "/logo_triad.png"
   },
-  {
-    name: "John Smith",
-    role: "Head of Production",
-    photo: "/logo_mythic.webp"
-  },
-  {
-    name: "Alex Lee",
-    role: "A&R Manager",
-    photo: "/record.svg"
-  }
 ];
 
 const artists = [
   {
-    name: "DJ Nova",
+    name: "OK Micheal",
     logo: "/logo_triad.png",
     music: [
-      { title: "Starlight Drive", url: "https://example.com/starlight" },
-      { title: "Midnight Pulse", url: "https://example.com/midnight" },
+      { title: "Soundcloud", url: "https://soundcloud.com/ok999ordie" },
     ],
   },
   {
-    name: "Echo",
-    logo: "/logo_mythic.webp",
+    name: "Jared Baker",
+    logo: "/logo_triad.png",
     music: [
-      { title: "Reflections", url: "https://example.com/reflections" },
-      { title: "Lost in Sound", url: "https://example.com/lost" },
-    ],
-  },
-  {
-    name: "Luna Wave",
-    logo: "/record.svg",
-    music: [
-      { title: "Moonlit", url: "https://example.com/moonlit" },
-      { title: "Tidal", url: "https://example.com/tidal" },
     ],
   },
 ];

@@ -3,9 +3,9 @@ import React from "react";
 // Example event data
 export const releases = [
   {
-    day: 27,
-    title: "City Opening",
-    location: "City Hall",
+    day: -3,
+    title: "Grand Opening",
+    location: "Triad Records",
     time: "7:00 PM EST",
     description: "Grand opening event for the city.",
   },
@@ -46,7 +46,7 @@ export default function UpcomingReleasesCalendar({ releases: releasesProp }) {
 
   return (
     <section className="calendar-section">
-      <h2>Upcoming Releases</h2>
+      <h2>Upcoming Events</h2>
       <div className="calendar">
         <div className="calendar-header">{monthName} {year}</div>
         <div className="calendar-grid">
